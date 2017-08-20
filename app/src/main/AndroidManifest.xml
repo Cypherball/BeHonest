@@ -19,13 +19,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CasualSettingsActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" />
-        <activity
-            android:name=".CasualActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".TruthDareSettingsActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />

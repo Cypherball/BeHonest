@@ -12,11 +12,11 @@ public class LaunchActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch);
     }
-    public void onClickCasual(View view){
-        Intent intent = new Intent (LaunchActivity.this, CasualSettingsActivity.class);
-        startActivity(intent);
+    public void onClickSettings(View view){
+        //Intent intent = new Intent (LaunchActivity.this, Settings.class);
+        //startActivity(intent);
     }
-    public void onCickTruthDare(View view){
+    public void onCickPlay(View view){
         Intent intent= new Intent(LaunchActivity.this,TruthDareSettingsActivity.class);
         startActivity(intent);
     }
