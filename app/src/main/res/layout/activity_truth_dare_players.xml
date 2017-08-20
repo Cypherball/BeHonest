@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context="com.theboringman.behonest.TruthDarePlayersActivity">
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="100dp"
+        android:layout_height="48dp"
+        android:layout_below="@+id/add_players"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_toRightOf="@+id/enterName"
+        android:background="@drawable/rect_button"
+        android:foreground="@drawable/ripple_rect"
+        android:onClick="onClickAdd"
+        android:text="@string/add"
+        android:textColor="@drawable/text_color"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/Truth_DareHead"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="top"
+        android:background="@color/textViewHead"
+        android:gravity="center"
+        android:text="@string/Truth_Dare"
+        android:textStyle="bold"
+        android:textColor="#FFF"
+        android:textSize="50sp" />
+
+    <TextView
+        android:id="@+id/settings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Truth_DareHead"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/background"
+        android:text="@string/settings"
+        android:textAlignment="center"
+        android:textColor="#000"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/add_players"
+        android:layout_width="135dp"
+        android:layout_height="48dp"
+        android:layout_below="@+id/settings"
+        android:layout_gravity="top"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="0dp"
+        android:gravity="bottom"
+        android:text="@string/add_players"
+        android:textColor="#021a1c"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/enterName"
+        android:layout_width="265dp"
+        android:layout_height="48dp"
+        android:layout_below="@+id/add_players"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#021a1c"
+        android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+        android:gravity="bottom"
+        android:hint="@string/player_name"
+        android:inputType="text"
+        android:maxLength="22"
+        android:textColor="#00BFA5"
+        android:textColorHint="#757575"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/remove"
+        android:layout_width="150dp"
+        android:layout_height="32dp"
+        android:layout_alignEnd="@+id/players"
+        android:layout_alignRight="@+id/players"
+        android:layout_below="@+id/players"
+        android:background="@drawable/rect_button"
+        android:foreground="@drawable/ripple_rect"
+        android:onClick="onClickRemove"
+        android:visibility="invisible"
+        android:text="@string/remove"
+        android:textColor="@drawable/text_color"
+        android:textSize="15sp" />
+
+    <ListView
+        android:id="@+id/players"
+        android:layout_width="match_parent"
+        android:layout_height="182dp"
+        android:layout_below="@+id/enterName"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:divider="#FFF"
+        android:dividerHeight="2dp"
+        android:layout_marginRight="16dp"/>
+
+    <Button
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_below="@+id/remove"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/circle_button"
+        android:foreground="@drawable/ripple"
+        android:onClick="onClickPlay"
+        android:text="@string/play"
+        android:textColor="@drawable/text_color"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:text="@string/beHonest"
+        android:textColor="#000"
+        android:textSize="20sp" />
+
+</RelativeLayout>

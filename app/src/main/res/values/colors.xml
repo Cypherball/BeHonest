@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF99CC00</color>
+    <color name="material_dark">#303030</color>
+    <color name="colorAccent2">#ffffbb38</color>
+    <color name="StatusDarkGreen">#1b5e20</color>
+    <color name="AccentGreen700">#00e676</color>
+    <color name="DarkBlue">#010f11</color>
+    <color name="AccentTeal700">#00bfa5</color>
+    <color name="background">#CFD8DC</color>
+    <color name="textViewHead">#021a1c</color>
+</resources>

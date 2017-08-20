@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context="com.theboringman.behonest.TruthDareSelectActivity">
+
+    <TextView
+        android:id="@+id/Truth_DareHead"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="top"
+        android:background="@color/textViewHead"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:text="@string/Truth_Dare"
+        android:textColor="#FFF"
+        android:textSize="50sp" />
+
+    <TextView
+        android:id="@+id/playerName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Truth_DareHead"
+        android:textColor="#00BFA5"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/background"
+        android:textSize="32sp" />
+
+    <Button
+        android:id="@+id/truth"
+        android:layout_width="145dp"
+        android:layout_height="145dp"
+        android:layout_below="@+id/playerName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/circle_button"
+        android:foreground="@drawable/ripple"
+        android:onClick="onClickTruth"
+        android:text="@string/truth"
+        android:textColor="@drawable/text_color"
+        android:textSize="40sp" />
+
+    <Button
+        android:id="@+id/dare"
+        android:layout_width="145dp"
+        android:layout_height="145dp"
+        android:layout_below="@+id/truth"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/circle_button"
+        android:foreground="@drawable/ripple"
+        android:onClick="onClickDare"
+        android:text="@string/dare"
+        android:textColor="@drawable/text_color"
+        android:textSize="40sp" />
+
+
+    <Button
+        android:id="@+id/exits"
+        android:layout_width="165dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dare"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="16dp"
+        android:background="@drawable/rect_button"
+        android:foreground="@drawable/ripple_rect"
+        android:onClick="onClickExit"
+        android:text="@string/exit"
+        android:textColor="@drawable/text_color"
+        android:layout_marginTop="64dp"
+        android:textSize="22sp" />
+    <Button
+        android:id="@+id/viewScores"
+        android:layout_width="165dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dare"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="8dp"
+        android:background="@drawable/rect_button"
+        android:foreground="@drawable/ripple_rect"
+        android:onClick="onClickViewScores"
+        android:text="@string/view_score"
+        android:textColor="@drawable/text_color"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:text="@string/beHonest"
+        android:textColor="#000"
+        android:textSize="20sp" />
+
+
+</RelativeLayout>
