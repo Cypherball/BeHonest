@@ -1,12 +1,19 @@
 package com.theboringman.behonest;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewAnimationUtils;
+import android.view.ViewTreeObserver;
+import android.view.animation.AccelerateInterpolator;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -39,7 +46,12 @@ public class TruthDareSelectActivity extends Activity {
     private DatabaseHelper db;
     private AlertDialog alertDialog;
     private Random random;
-    private customAdapterTwo _customAdapter;
+    private customAdapterTwo _customAdapter;                       //For ScoreBoard ListView
+    private int revealX;
+    private int revealY;
+    public static final String EXTRA_CIRCULAR_REVEAL_X = "EXTRA_CIRCULAR_REVEAL_X";
+    public static final String EXTRA_CIRCULAR_REVEAL_Y = "EXTRA_CIRCULAR_REVEAL_Y";
+    View rootLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +59,73 @@ public class TruthDareSelectActivity extends Activity {
         setContentView(R.layout.activity_truth_dare_select);
         loadStuff();
        setCurrPlayerName();
+        final Intent intent = getIntent();
+        rootLayout = findViewById(R.id.truth_dare_select);
+        if (savedInstanceState == null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP &&
+                intent.hasExtra(EXTRA_CIRCULAR_REVEAL_X) &&
+                intent.hasExtra(EXTRA_CIRCULAR_REVEAL_Y)){
+            rootLayout.setVisibility(View.INVISIBLE);
+            revealX = intent.getIntExtra(EXTRA_CIRCULAR_REVEAL_X, 0);
+            revealY = intent.getIntExtra(EXTRA_CIRCULAR_REVEAL_Y, 0);
+            ViewTreeObserver viewTreeObserver = rootLayout.getViewTreeObserver();
+            if (viewTreeObserver.isAlive()) {
+                viewTreeObserver.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                    @Override
+                    @TargetApi(21)
+                    public void onGlobalLayout() {
+                        revealActivity(revealX, revealY);
+                        rootLayout.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                    }
+                });
+            } else{
+                rootLayout.setVisibility(View.VISIBLE);
+            }
+        }else {
+            rootLayout.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+            unRevealActivity();
+    }
+
+    protected void revealActivity( int x, int y){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            float finalRadius = (float) (Math.max(rootLayout.getWidth(), rootLayout.getHeight()) * 1.1);
+
+            // create the animator for this view (the start radius is zero)
+            Animator circularReveal = ViewAnimationUtils.createCircularReveal(rootLayout, x, y, 0, finalRadius);
+            circularReveal.setDuration(600);
+            circularReveal.setInterpolator(new AccelerateInterpolator());
+
+            // make the view visible and start the animation
+            rootLayout.setVisibility(View.VISIBLE);
+            circularReveal.start();
+        } else {
+            finish();
+        }
+    }
+
+    protected void unRevealActivity(){
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            finish();
+        } else {
+            float finalRadius = (float) (Math.max(rootLayout.getWidth(), rootLayout.getHeight()) * 1.1);
+            Animator circularReveal = ViewAnimationUtils.createCircularReveal(
+                    rootLayout, revealX, revealY, finalRadius, 0);
+
+            circularReveal.setDuration(300);
+            circularReveal.addListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    rootLayout.setVisibility(View.INVISIBLE);
+                    finish();
+                }
+            });
+            circularReveal.start();
+        }
     }
 
     private void loadStuff() {
@@ -149,6 +228,7 @@ public class TruthDareSelectActivity extends Activity {
             public void onClick(DialogInterface dialog, int which) {
                 Intent intent = new Intent(TruthDareSelectActivity.this, LaunchActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -177,7 +257,7 @@ public class TruthDareSelectActivity extends Activity {
         ListView scoresView = (ListView) mView.findViewById(R.id.Scores);
         Button back = (Button) mView.findViewById(R.id.back);
         if(isExit){
-            back.setText("EXIT");
+            back.setText(R.string.exit);
         }
         //Set ListView
         getScores();
@@ -190,8 +270,9 @@ public class TruthDareSelectActivity extends Activity {
             back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    Intent intent = new Intent(TruthDareSelectActivity.this, LaunchActivity.class);
-                    startActivity(intent);
+                Intent intent = new Intent(TruthDareSelectActivity.this, LaunchActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
         }else{

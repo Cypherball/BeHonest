@@ -2,7 +2,7 @@
     <string name="app_name">BeHonest</string>
     <string name="Truth_Dare">Truth/Dare</string>
     <string name="yes_no">Yes/No</string>
-    <string name="tagLine">How <b><font color="#021a1c">Honest</font></b> Can You Be?</string>
+    <string name="tagLine">A <b><font color="#021a1c">Truth/Dare</font></b> Game</string>
     <string name="play">PLAY!</string>
     <string name="score_limit">Score Limit:</string>
     <string name="name_2">name_2</string>
@@ -14,11 +14,9 @@
     <string name="beHonest2"><b>BeHonest</b></string>
     <string name="scoreRange">10&#8211;99</string>
     <string name="beHonestHead">Be<b>Honest</b></string>
-    <string name="yes">Yes</string>
-    <string name="no">No</string>
     <string name="done">DONE</string>
     <string name="notSay">I\'d Rather Not Say</string>
-    <string name="exit">Exit</string>
+    <string name="exit">EXIT</string>
     <string name="reset">Reset</string>
     <string name="limitReachedDialog">Score Limit Reached</string>
     <string name="kids">Kids</string>
@@ -43,4 +41,8 @@
     <string name="ok">OK</string>
     <string name="back">BACK</string>
     <string name="score_board">Score Board</string>
+    <string name="pref">Preferences</string>
+    <string name="play_caps">PLAY</string>
+    <string name="choose">Choose</string>
+    <string name="options">OPTIONS</string>
 </resources>
