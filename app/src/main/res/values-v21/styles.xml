@@ -3,18 +3,10 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="android:Theme.Material.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="android:statusBarColor">@color/DarkBlue</item>
-        <item name="android:colorAccent">@color/AccentTeal700</item>
+        <item name="android:statusBarColor">@color/StatusBarColor</item>
+        <item name="android:colorAccent">@color/Accent</item>
         <item name="android:colorBackground">@color/background_material_dark</item>
-        <item name="android:windowTranslucentNavigation">true</item>
-        <item name="android:windowTranslucentStatus">true</item>
     </style>
 
-    <style name="AppTheme.Transparent" parent="AppTheme">
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-
-    </style>
 
 </resources>
